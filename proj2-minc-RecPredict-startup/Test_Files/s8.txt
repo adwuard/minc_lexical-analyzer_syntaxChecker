@@ -1,0 +1,15 @@
+program
+decl_list
+decl_list_
+fun_decl
+type_spec
+ ->type_spec INT Matched
+ ->fun_decl IDENT Matched
+ ->fun_decl ( Matched
+params
+param_list
+param
+type_spec
+ ->type_spec INT Matched
+ ->param IDENT Matched
+Error: there exist syntax errors.

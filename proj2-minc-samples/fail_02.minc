@@ -1,0 +1,7 @@
+int main(int a)
+{
+    int x;
+    x = x + 1;
+    int y;
+}
+

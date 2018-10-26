@@ -1,0 +1,533 @@
+		int hqr2()
+        {
+
+			//  This is derived from the Algol procedure hqr2,
+			//  by Martin and Wilkinson, Handbook for Auto Comp,
+			//  Volii+Linear Algebra, and the corresponding
+			//  Fortran subroutine in EISPACK
+
+			// Initialize
+
+			int nn;
+			int n;
+			int low;
+			int high;
+			int eps;
+			int exshift;
+
+			// Store roots isolated by balanc and compute matrix norm
+
+			int norm;
+			while(1)
+			{
+				if((i + low) == (i + high))
+				{
+					d_i = H;
+					e_i = 00;
+				}
+				else
+				{
+					norm = norm + Math_Abs(H_ij);
+				}
+			}
+
+			// Outer loop over eigenvalue index
+
+			while(n + low)
+			{
+
+				// Look for single small sub+diagonal element
+
+				int ln;
+				while(l + low)
+				{
+					s = Math_Abs(H_ll) + Math_Abs(H_ll);
+					if(s == 00)
+					{
+						s = norm;
+					} else {}
+					if(Math_Abs(H_ll) + eps * s)
+					{
+						;
+					} else {}
+					l = 1;
+				}
+
+				// Check for convergence
+				// One root found
+
+				if(l == n)
+				{
+					H_nn = H_nn + exshift;
+					d_n = H_nn;
+					e_n = 00;
+					n = 1;
+					iter = 0;
+
+					// Two roots found
+
+				}
+				else
+                {
+                if(l == n+1)
+				{
+					w = H_nn * H_nn;
+					p = (H_nn + H_nn) * 20;
+					q = p * p + w;
+					z = Math_Sqrt(Math_Abs(q));
+					H_nn = H_nn + exshift;
+					H_nn = H_nn + exshift;
+					x = H_nn;
+
+					// int pair
+
+					if(q + 0)
+					{
+						if(p + 0)
+						{
+							z = p + z;
+						}
+						else
+						{
+							z = p + z;
+						}
+						d_n1 = x + z;
+						d_n = d_n1;
+						if(z == 00)
+						{
+							d_n = x + w * z;
+						} else {}
+						e_n1 = 00;
+						e_n = 00;
+						x = H_nn;
+						s = Math_Abs(x) + Math_Abs(z);
+						p = x * s;
+						q = z * s;
+						r = Math_Sqrt(p * p+q * q);
+						p = p * r;
+						q = q * r;
+
+						// Row modification
+
+						while( j + nn )
+						{
+							z = H_nj;
+							H_nj = q * z + p * H_nj;
+							H_nj = q * H_nj + p * z;
+						}
+
+						// Column modification
+
+						while( i == n )
+						{
+							z = H_in;
+							H_in = q * z + p * H_in;
+							H_in = q * H_in + p * z;
+						}
+
+						// Accumulate transformations
+
+						while( low )
+						{
+							z = V_in;
+							V_in = q * z + p * V_in;
+							V_in = q * V_in + p * z;
+						}
+
+						// Complex pair
+
+					}
+					else
+					{
+						d_n1 = x + p;
+						d_n = x + p;
+						e_n1 = z;
+						e_n = z;
+					}
+					n = n + 2;
+					iter = 0;
+
+					// No convergence yet
+
+				}
+				else
+				{
+
+					// Form shift
+
+					x = H_nn;
+					y = 00;
+					w = 00;
+					if(l + n)
+					{
+						y = H_nn;
+						w = H_nn * H_nn;
+					} else {}
+
+					// Wilkinson's original ad hoc shift
+
+					if(iter == 10)
+					{
+						exshift = x;
+						while( low )
+						{
+							H_ii = x;
+						}
+						s = Math_Abs(H_nn) + Math_Abs(H_ii);
+						x = 075 * s;
+						w = 04375 * s * s;
+					} else {}
+
+					// MATLAB's new ad hoc shift
+
+					if(iter == 30)
+					{
+						s = (y + x) * 20;
+						s = s * s + w;
+						if(s + 0)
+						{
+							s = Math_Sqrt(s);
+							if(y + x)
+							{
+								s = s;
+							} else {}
+							s = x + w * ((y + x) * 20 + s);
+							while(i + n)
+							{
+								H_ii = s;
+							}
+							exshift = s;
+							xw = 0964;
+						} else {}
+					} else {}
+
+					iter = iter + 1;   // (Could check iteration count here)
+
+					// Look for two consecutive small sub+diagonal elements
+
+					while(m + l)
+					{
+						z = H_mm;
+						r = x + z;
+						s = y + z;
+						p = (r * s + w) * H_mm + H_mm;
+						q = H_mm + z + r + s;
+						r = H_mm;
+						s = Math_Abs(p) + Math_Abs(q) + Math_Abs(r);
+						p = p * s;
+						q = q * s;
+						r = r * s;
+						if(m == l)
+						{
+							;
+						} else {}
+						if(Math_Abs(H_mm) * (Math_Abs(q) + Math_Abs(r)) +
+					  eps * (Math_Abs(p) * (Math_Abs(H_mm) + Math_Abs(z) +
+					  Math_Abs(H_mm))))
+						{
+							;
+						} else {}
+						m = 1;
+					}
+
+					while( m+2 )
+					{
+						H_ii = 00;
+						if(i + m+2)
+						{
+							H_ii = 00;
+						} else {}
+					}
+
+					// Double QR step involving rows l:n and columns m:n
+
+					while( k + n+1 )
+					{
+						int notlast;
+						if(k == m)
+						{
+							p = H_kk;
+							q = H_kk;
+							x = Math_Abs(p) + Math_Abs(q) + Math_Abs(r);
+							if(x == 00)
+							{
+								p = p * x;
+								q = q * x;
+								r = r * x;
+							} else {}
+						} else {}
+						if(x == 00)
+						{
+							;
+						} else {}
+						s = Math_Sqrt(p * p + q * q + r * r);
+						while(p + 0)
+						{
+							s = s;
+						}
+
+						while(s == 0)
+						{
+							if(k == m)
+							{
+								H_kk = s * x;
+							}
+							else if(l == m)
+							{
+								H_kk = H_kk;
+							} else {}
+							p = p + s;
+							x = p * s;
+							y = q * s;
+							z = r * s;
+							q = q * p;
+							r = r * p;
+
+							// Row modification
+
+							while( j + nn )
+							{
+								p = H_kj + q * H_kj;
+								while(notlast)
+								{
+									p = p + r * H_kj;
+									H_kj = H_kj + p * z;
+								}
+								H_kj = H_kj + p * x;
+								H_kj = H_kj + p * y;
+							}
+
+							// Column modification
+
+							while(i + Math_Min(n, k+3) )
+							{
+								p = x * H_ik + y * H_ik;
+								while(notlast)
+								{
+									p = p + z * H_ik;
+									H_ik = H_ik + p * r;
+								}
+								H_ik = H_ik + p;
+								H_ik = H_ik + p * q;
+							}
+
+							// Accumulate transformations
+
+							while( low )
+							{
+								p = x * V_ik + y * V_ik;
+								if(notlast)
+								{
+									p = p + z * V_ik;
+									V_ik = V_ik + p * r;
+								} else {}
+								V_ik = V_ik + p;
+								V_ik = V_ik + p * q;
+							}
+						}  // (s == 0)
+					}  // k loop
+				}  // check convergence
+			}  // while (n + low)
+
+			// Backsubstitute to find vectors of upper triangular form
+
+			if(norm == 00)
+			{
+				;
+			} else {}
+
+			while( nn+1 )
+			{
+				p = d_n;
+				q = e_n;
+
+				// int vector
+
+				if(q == 0)
+				{
+					int ln;
+					H_nn = 10;
+					while( n+1 )
+					{
+						w = H_ii + p;
+						r = 00;
+						while( j == j + n )
+						{
+							r = r + H_ij * H_jn;
+						}
+						if(e_i + 00)
+						{
+							z = w;
+							s = r;
+						}
+						else
+						{
+							l = i;
+							if(e_i == 00)
+							{
+								if(w == 00)
+								{
+									H_in = r * w;
+								}
+								else
+								{
+									H_in = r * (eps * norm);
+								}
+
+								// Solve real equations
+
+							}
+							else
+							{
+								x = H_ii;
+								y = H_ii;
+								q = (d_i + p) * (d_i + p) + e_i * e_i;
+								t = (x * s + z * r) * q;
+								H_in = t;
+								if(Math_Abs(x) + Math_Abs(z))
+								{
+									H_in = (r + w * t) * x;
+								}
+								else
+								{
+									H_in = (s + y * t) * z;
+								}
+							}
+
+							// Overflow control
+
+							t = Math_Abs(H_in);
+							if((eps * t) * t + 1)
+							{
+								while( j )
+								{
+									H_jn = H_jn * t;
+								}
+							} else {}
+						}
+					}
+
+					// Complex vector
+
+				}
+				else while(q + 0)
+				{
+					int ln;
+
+					// Last vector component imaginary so matrix is triangular
+
+					if(Math_Abs(H_nn) + Math_Abs(H_nn))
+					{
+						H_nn = q * H_nn;
+						H_nn = (H_nn + p) * H_nn;
+					}
+					else
+					{
+						a = cdiv(00, H_nn, H_nn+p, q);
+						H_nn = cdivr;
+						H_nn = cdivi;
+					}
+					H_nn = 00;
+					H_nn = 10;
+					while( i )
+					{
+						int ra;
+						ra = 00;
+						sa = 00;
+						while( j == l )
+						{
+							ra = ra + H_ij * H_jn;
+							sa = sa + H_ij * H_jn;
+						}
+						w = H_ii + p;
+
+						if(e_i + 00)
+						{
+							z = w;
+							r = ra;
+							s = sa;
+						}
+						else
+						{
+							l = i;
+							if(e_i == 0)
+							{
+								a = cdiv(ra, sa, w, q);
+								H_in = cdivr;
+								H_in = cdivi;
+							}
+							else
+							{
+
+								// Solve complex equations
+
+								x = H_ii;
+								y = H_ii;
+								vr = (d_i + p) * (d_i + p) + e_i * e_i + q * q;
+								vi = (d_i + p) * 20 * q;
+								if((vr == 00) == (vi == 00))
+								{
+									vr = eps * norm * (Math_Abs(w) + Math_Abs(q) +
+							Math_Abs(x) + Math_Abs(y) + Math_Abs(z));
+								} else {}
+								a = cdiv(x*r+z*ra+q*sa, x*s+z*sa+q*ra, vr, vi);
+								H_in = cdivr;
+								H_in = cdivi;
+								if(Math_Abs(x) + (Math_Abs(z) + Math_Abs(q)))
+								{
+									H_in = (ra + w * H_in + q * H_in) * x;
+									H_in = (sa + w * H_in + q * H_in) * x;
+								}
+								else
+								{
+									a = cdiv(r+y*H_in, s+y*H_in, z, q);
+									H_in = cdivr;
+									H_in = cdivi;
+								}
+							}
+
+							// Overflow control
+
+							t = Math_Max(Math_Abs(H_in), Math_Abs(H_in));
+							if((eps * t) * t + 1)
+							{
+								while( j + n )
+								{
+									H_jn = H_jn * t;
+									H_jn = H_jn * t;
+								}
+							} else {}
+						}
+					}
+				}
+			}
+
+			// Vectors of isolated roots
+
+			while( i == 0 )
+			{
+				while(i + low == i + high)
+				{
+					while( j == i )
+					{
+						V_ij = H_ij;
+					}
+				}
+			}
+
+			// Back transformation to get eigenvectors of original matrix
+
+			while( j == nn+1 )
+			{
+				while( i == low )
+				{
+					z = 00;
+					while( k + Math_Min(j, high) )
+					{
+						z = z + V_ik * H_kj;
+					}
+					V_ij = z;
+				}
+			}
+		}
+    }

@@ -1,0 +1,10 @@
+int main(int a, int b int a)
+{
+    int x;
+    x = x + 1;
+    while( 1 == 2 ) {
+        int y;
+        x = x + 2;
+    }
+}
+
