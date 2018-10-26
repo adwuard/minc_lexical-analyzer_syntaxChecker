@@ -31,14 +31,12 @@ SucessTargetFiles=["output_succ_01.minc", "output_succ_02.minc", "output_succ_03
 "output_succ_07.minc", "output_succ_08.minc", "output_succ_09.minc","output_succ_10.minc", "output_succ_11.minc", "output_succ_12.minc",
 "output_succ_13.minc", "output_succ_14.minc", "output_succ_15.minc","output_succ_16.minc"]
 	
-for i in range(0,7):
+for i in range(0,16):
 	f1=open("Test_Files/"+ yourSucessOutputFiles[i])
 	f2=open("Test_Files/"+ SucessTargetFiles[i])
 	
 	print("======================================================================")
 	print("File: "+ yourSucessOutputFiles[i]+ " Comparing To: " + SucessTargetFiles[i])
-	print("======================================================================")
-
 	for line1 in f1:
 		for line2 in f2:
 			if line1!=line2:
@@ -50,4 +48,4 @@ for i in range(0,7):
 	f1.close()
 	f2.close()
 	print("===================================End=================================")
-	print("\n\n")
+	print("\n")

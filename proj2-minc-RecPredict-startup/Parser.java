@@ -159,7 +159,7 @@ public class Parser
             // type_spec	-> "int"
             case INT:
                 if(Match(INT) == false) return false;
-                if(DebugFlag)System.out.println(" ->type_spec INT Matched");
+                if(DebugFlag)System.out.println(" ->type_spec "+"\t\t\t INT Matched");
                 return true;
         }
         return false;
@@ -178,12 +178,12 @@ public class Parser
                 //System.out.println("Matched"+_token.attr +_token.type);
 
                 if( Match(IDENT)    == false) return false;
-                if(DebugFlag)System.out.println(" ->fun_decl IDENT Matched");
+                if(DebugFlag)System.out.println(" ->fun_decl "+"\t\t\tIDENT Matched");
                 if( Match(LPAREN)   == false) return false;
-                if(DebugFlag)System.out.println(" ->fun_decl ( Matched");
+                if(DebugFlag)System.out.println(" ->fun_decl "+"\t\t\t( Matched");
                 if( params()        == false) return false;
                 if( Match(RPAREN)   == false) return false;
-                if(DebugFlag)System.out.println(" ->fun_decl ) Matched");
+                if(DebugFlag)System.out.println(" ->fun_decl "+"\t\t\t) Matched");
                 if( compound_stmt() == false) return false;
                 return true;
         }
@@ -224,21 +224,19 @@ public class Parser
             {
                 case INT:
                     if( param()     == false) return false;
+                    if( param_list_()     == false) return false;
                     return true;
                     
                 case COMMA:
+                    if( param()           == false) return false;
                     if( param_list_()     == false) return false;
                     return true;
-                
-                 case ENDMARKER:
-                    if( param_list()      == false) return false;
-                    //if( Match(ENDMARKER) == false) return false;
-                    return true;
+            
             }
             return false;
     }
     
-    //Done need add float bool cases
+    //Done
     public boolean param() throws java.io.IOException, Exception
     {
         if(DebugFlag)System.out.println("param");
@@ -247,7 +245,7 @@ public class Parser
                 case INT:
                     if( type_spec()     == false) return false;
                     if( Match(IDENT)    == false) return false;
-                    if(DebugFlag)System.out.println(" ->param IDENT Matched");
+                    if(DebugFlag)System.out.println(" ->param "+"\t\t\tIDENT Matched");
                     return true;
             }
             return false;
@@ -337,17 +335,17 @@ public class Parser
         switch(_token.type){
             case IDENT:
                 if( Match(IDENT)     == false) return false;
-                if(DebugFlag)System.out.println(" ->expr_stmt IDENT Matched");
+                if(DebugFlag)System.out.println(" ->expr_stmt "+"\t\t\tIDENT Matched");
                 if( Match(ASSIGN)     == false) return false;
-                if(DebugFlag)System.out.println(" ->expr_stmt = Matched");
+                if(DebugFlag)System.out.println(" ->expr_stmt "+"\t\t\t= Matched");
                 if( expr()     == false) return false;
                 if( Match(SEMI)     == false) return false;
-                if(DebugFlag)System.out.println(" ->expr_stmt ; Matched");
+                if(DebugFlag)System.out.println(" ->expr_stmt "+"\t\t\t; Matched");
                 return true;
             
             case SEMI:
                 if( Match(SEMI)     == false) return false;
-                if(DebugFlag)System.out.println(" ->expr_stmt SEMI Matched");
+                if(DebugFlag)System.out.println(" ->expr_stmt "+"\t\t\tSEMI Matched");
                 return true;
                 
         }
@@ -362,12 +360,12 @@ public class Parser
         switch(_token.type){
             case WHILE:
                 if( Match(WHILE)     == false) return false;
-                if(DebugFlag)System.out.println(" ->while_stmt While Matched");
+                if(DebugFlag)System.out.println(" ->while_stmt "+"\t\t\tWhile Matched");
                 if( Match(LPAREN)    == false) return false;
-                if(DebugFlag)System.out.println(" ->while_stmt ( Matched");
+                if(DebugFlag)System.out.println(" ->while_stmt "+"\t\t\t( Matched");
                 if( expr()           == false) return false;
                 if( Match(RPAREN)     == false) return false;
-                if(DebugFlag)System.out.println(" ->while_stmt ) Matched");
+                if(DebugFlag)System.out.println(" ->while_stmt "+"\t\t\t) Matched");
                 if( stmt()           == false) return false;
                 return true;
         }
@@ -381,11 +379,11 @@ public class Parser
         switch(_token.type){
                 case BEGIN:  
                     if( Match(BEGIN)     == false) return false;
-                    if(DebugFlag)System.out.println(" ->compound_stmt { Matched");
+                    if(DebugFlag)System.out.println(" ->compound_stmt "+"\t\t\t{ Matched");
                     if( local_decls()    == false) return false;
                     if( stmt_list()           == false) return false;
                     if( Match(END)     == false) return false;
-                    if(DebugFlag)System.out.println(" ->compound_stmt } Matched");
+                    if(DebugFlag)System.out.println(" ->compound_stmt "+"\t\t\t} Matched");
                     return true;
             }
             return false;    
@@ -412,9 +410,9 @@ public class Parser
             case INT:
                 if(type_spec()    == false) return false;
                 if( Match(IDENT)  == false) return false;
-                if(DebugFlag)System.out.println(" ->local_decl Ident Matched");
+                if(DebugFlag)System.out.println(" ->local_decl "+"\t\t\tIdent Matched");
                 if( Match(SEMI)  == false) return false;
-                if(DebugFlag)System.out.println(" ->local_decl ; Matched");
+                if(DebugFlag)System.out.println(" ->local_decl "+"\t\t\t; Matched");
                 return true;
         }
         return false;
@@ -427,15 +425,15 @@ public class Parser
         switch(_token.type){
             case IF:
                 if( Match(IF)       == false) return false;
-                if(DebugFlag)System.out.println(" ->if_stmt if Matched");
+                if(DebugFlag)System.out.println(" ->if_stmt "+"\t\t\tif Matched");
                 if( Match(LPAREN)   == false) return false;
-                if(DebugFlag)System.out.println(" ->if_stmt ( Matched");
+                if(DebugFlag)System.out.println(" ->if_stmt "+"\t\t\t( Matched");
                 if( expr()          == false) return false;
                 if( Match(RPAREN)   == false) return false;
-                if(DebugFlag)System.out.println(" ->if_stmt ) Matched");
+                if(DebugFlag)System.out.println(" ->if_stmt "+"\t\t\t) Matched");
                 if( stmt()          == false) return false;
                 if( Match(ELSE)     == false) return false;
-                if(DebugFlag)System.out.println(" ->if_stmt else Matched");
+                if(DebugFlag)System.out.println(" ->if_stmt "+"\t\t\telse Matched");
                 if( stmt()          == false) return false;
                 return true;
         }
@@ -490,13 +488,13 @@ public class Parser
                 return true;
             
             case ENDMARKER:
-                //if( expr()          == false) return false;
-                //if( arg_list_()     == false) return false;
-                //if( Match(ENDMARKER)  == false) return false;
+                if( expr()          == false) return false;
+                if( arg_list_()     == false) return false;
+                if( Match(ENDMARKER)  == false) return false;
                 if(DebugFlag)System.out.println("End Marker");
                 return true;
         }
-        return false;
+        return true;
     }
     
     
@@ -562,21 +560,21 @@ public class Parser
         switch(_token.type){
             case IDENT:
                 if( Match(IDENT)       == false) return false;
-                if(DebugFlag)System.out.println(" ->factor IDENT Matched");
+                if(DebugFlag)System.out.println(" ->factor "+"\t\t\tIDENT Matched");
                 if( factor_()          == false) return false;
                 return true;
                     
             case LPAREN:
                 if( Match(LPAREN)   == false) return false;
-                if(DebugFlag)System.out.println(" ->factor ( Matched");
+                if(DebugFlag)System.out.println(" ->factor "+"\t\t\t( Matched");
                 if( expr()           == false) return false;
                 if( Match(RPAREN)   == false) return false;
-                if(DebugFlag)System.out.println(" ->factor ) Matched");
+                if(DebugFlag)System.out.println(" ->factor "+"\t\t\t) Matched");
                 return true;
                 
             case INT_LIT:
                 if( Match(INT_LIT)   == false) return false;
-                if(DebugFlag)System.out.println(" ->factor INT_LIT Matched");
+                if(DebugFlag)System.out.println(" ->factor "+"\t\t\tINT_LIT Matched");
                 return true;
         }
         return false;
@@ -607,11 +605,10 @@ public class Parser
         if(DebugFlag)System.out.println("param_list_");
          // param_list_ -> "," param param_list' | epsilon
         switch(_token.type){
-             case INT:
+             case COMMA:
                     if(Match(COMMA) == false) return false;
-                    if(DebugFlag)System.out.println(" ->param_list_ , Matched");
-                    
-                    if(param()   == false) return false;
+                    if(DebugFlag)System.out.println(" ->param_list_ "+"\t\t\t, Matched");
+                    if(param()   == false) return false; //int a
                     if(param_list_() == false) return false;
                     return true;
                     
@@ -620,7 +617,7 @@ public class Parser
                 return true;
             
         }
-        return false;
+        return true;
     }
     
     
@@ -686,9 +683,9 @@ public class Parser
         if(DebugFlag)System.out.println("arg_list_");
          // arg_list' -> "," expr arg_list' | epsilon
             switch(_token.type){
-                    case INT:
+                    case COMMA:
                         if(Match(COMMA)== false) return false;
-                        if(DebugFlag)System.out.println(" ->arg_list_ , Matched");
+                        if(DebugFlag)System.out.println(" ->arg_list_ "+"\t\t\t, Matched");
                         if(expr()      == false) return false;
                         if(arg_list_() == false) return false;
                         return true;
@@ -698,7 +695,7 @@ public class Parser
                     if(DebugFlag)System.out.println("End Marker");
                         return true;
             }
-            return false;
+            return true;
     }
     
     
@@ -710,7 +707,7 @@ public class Parser
            
             case PLUS:
                 if(Match(PLUS)  == false) return false;
-                if(DebugFlag)System.out.println(" ->expr_ + Matched");
+                if(DebugFlag)System.out.println(" ->expr_ "+"\t\t\t+ Matched");
                 if(term()      == false) return false;
                 if(expr_()      == false) return false;
                 return true;
@@ -731,14 +728,14 @@ public class Parser
         {
             case EQ:
                 if(Match(EQ)    == false) return false;
-                if(DebugFlag)System.out.println(" ->term_ == Matched");
+                if(DebugFlag)System.out.println(" ->term_ "+"\t\t\t== Matched");
                 if(factor()      == false) return false;
                 if(term_()      == false) return false;
                 return true;
             
             case MUL:
                 if(Match(MUL)    == false) return false;
-                if(DebugFlag)System.out.println(" ->term_ * Matched");
+                if(DebugFlag)System.out.println(" ->term_ "+"\t\t\t* Matched");
                 if(factor()      == false) return false;
                 if(term_()      == false) return false;
                 return true;
@@ -759,10 +756,10 @@ public class Parser
         switch(_token.type){
             case LPAREN:
                 if(Match(LPAREN)    == false) return false;
-                if(DebugFlag)System.out.println(" ->factor_ ( Matched");
+                if(DebugFlag)System.out.println(" ->factor_ "+"\t\t\t( Matched");
                 if(args()           == false) return false;
                 if(Match(RPAREN)    == false) return false;
-                if(DebugFlag)System.out.println(" ->factor_ ) Matched");
+                if(DebugFlag)System.out.println(" ->factor_ "+"\t\t\t) Matched");
                 return true;
             
             case ENDMARKER:

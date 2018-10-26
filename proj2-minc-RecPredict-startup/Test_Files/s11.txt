@@ -1,10 +1,1 @@
-program
-decl_list
-decl_list_
-fun_decl
-type_spec
- ->type_spec INT Matched
- ->fun_decl IDENT Matched
- ->fun_decl ( Matched
-params
 Error: there exist syntax errors.

@@ -37,15 +37,15 @@ java Program  Test_Files/succ_04.minc 	> Test_Files/s4.txt
 java Program  Test_Files/succ_05.minc 	> Test_Files/s5.txt
 java Program  Test_Files/succ_06.minc 	> Test_Files/s6.txt
 java Program  Test_Files/succ_07.minc 	> Test_Files/s7.txt
-#java Program  Test_Files/succ_08.minc 	> Test_Files/s8.txt
-#java Program  Test_Files/succ_09.minc 	> Test_Files/s9.txt
-#java Program  Test_Files/succ_10.minc 	> Test_Files/s10.txt
-#java Program  Test_Files/succ_11.minc 	> Test_Files/s11.txt
-#java Program  Test_Files/succ_12.minc 	> Test_Files/s12.txt
-#java Program  Test_Files/succ_13.minc 	> Test_Files/s13.txt
-#java Program  Test_Files/succ_14.minc 	> Test_Files/s14.txt
-#java Program  Test_Files/succ_15.minc 	> Test_Files/s15.txt
-#java Program  Test_Files/succ_16.minc 	> Test_Files/s16.txt
+java Program  Test_Files/succ_08.minc 	> Test_Files/s8.txt
+java Program  Test_Files/succ_09.minc 	> Test_Files/s9.txt
+java Program  Test_Files/succ_10.minc 	> Test_Files/s10.txt
+java Program  Test_Files/succ_11.minc 	> Test_Files/s11.txt
+java Program  Test_Files/succ_12.minc 	> Test_Files/s12.txt
+java Program  Test_Files/succ_13.minc 	> Test_Files/s13.txt
+java Program  Test_Files/succ_14.minc 	> Test_Files/s14.txt
+java Program  Test_Files/succ_15.minc 	> Test_Files/s15.txt
+java Program  Test_Files/succ_16.minc 	> Test_Files/s16.txt
 
 echo Done
 
