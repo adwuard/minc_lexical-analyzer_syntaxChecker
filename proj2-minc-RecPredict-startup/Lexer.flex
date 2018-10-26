@@ -31,7 +31,7 @@ newline    = \n
 whitespace = [ \t\r]+
 comment    = "//".*
 
-identifier = [a-zA-Z][a-zA-Z0-9]*
+identifier = [a-zA-Z_][_a-zA-Z0-9]*
 
 %%
 

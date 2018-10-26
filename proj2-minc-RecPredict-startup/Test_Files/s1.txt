@@ -1,1 +1,26 @@
+program
+decl_list
+decl_list_
+fun_decl
+type_spec
+ ->type_spec 			 INT Matched
+ ->fun_decl 			IDENT Matched
+ ->fun_decl 			( Matched
+params
+param_list
+param
+type_spec
+ ->type_spec 			 INT Matched
+ ->param 			IDENT Matched
+param_list_
+ ->fun_decl 			) Matched
+compound_stmt
+ ->compound_stmt 			{ Matched
+local_decls
+local_decls_
+stmt_list
+stmt_list_
+ ->compound_stmt 			} Matched
+decl_list_
+End Marker
 Success: no syntax error found.

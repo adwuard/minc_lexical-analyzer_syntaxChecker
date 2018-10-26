@@ -35,17 +35,17 @@ for i in range(0,16):
 	f1=open("Test_Files/"+ yourSucessOutputFiles[i])
 	f2=open("Test_Files/"+ SucessTargetFiles[i])
 	
-	print("======================================================================")
-	print("File: "+ yourSucessOutputFiles[i]+ " Comparing To: " + SucessTargetFiles[i])
+#	print("======================================================================")
+	s=("File: "+ yourSucessOutputFiles[i]+ " Comparing To: " + SucessTargetFiles[i])
 	for line1 in f1:
 		for line2 in f2:
 			if line1!=line2:
 				print("Error! Line is different")
 				print("Your Output: \t\t"+ line1 +"Target: \t\t"+ line2)
 			else:
-				print("Same file")	
+				print(s+" ---> Same file")	
 			break
 	f1.close()
 	f2.close()
-	print("===================================End=================================")
+#	print("===================================End=================================")
 	print("\n")

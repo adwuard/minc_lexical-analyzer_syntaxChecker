@@ -48,10 +48,11 @@ public class Parser
     public static final int INT_LIT     = 55; // int pass back
     public static final int FLOAT_LIT   = 57; // float pass back
     public static final int IDENT       = 58; // identifiers
+    public static int line_count = 1;
     
-//    public static final boolean DebugFlag = true;
-    public static final boolean DebugFlag = false; 
-    //Strings maybe?
+    public static final boolean DebugFlag = true;
+//    public static final boolean DebugFlag = false; 
+
 
     public class Token {
         public int       type;
@@ -61,7 +62,7 @@ public class Parser
             this.attr   = attr;
         }
     }
-
+    
     public ParserVal yylval;
     Token _token;
     Lexer _lexer;
@@ -80,6 +81,7 @@ public class Parser
         if(token_type ==  0)      _token = new Token(ENDMARKER , null  ); //advance until reached end 
         else if(token_type == -1) _token = new Token(LEXERROR  , yylval);
         else                      _token = new Token(token_type, yylval);
+
     }
 
     public boolean Match(int token_type) throws java.io.IOException
@@ -87,6 +89,7 @@ public class Parser
         boolean match = (token_type == _token.type);
 
         if(_token.type != ENDMARKER)
+           
             Advance();
 
         return match;
@@ -97,6 +100,8 @@ public class Parser
         parse();
         return 0;
     }
+
+
     
     
     public void parse() throws java.io.IOException, Exception
@@ -195,23 +200,23 @@ public class Parser
     public boolean params() throws java.io.IOException, Exception
     {
         if(DebugFlag)System.out.println("params");
-        //params -> param_list
-//        switch(_token.type)
-//        {
-//            case INT:
-//                if( param_list()     == false) return false;
-//                return true;
-//            case COMMA:
-//                if( param_list()     == false) return false;
-//                return true;
-//            
-//             case ENDMARKER:
-//                if(DebugFlag)System.out.println("End Marker");
-//                if( param_list()      == false) return false;
-//                //if( Match(ENDMARKER) == false) return false;
-//                return true;
-//        }
-        if(param_list() == false) return false;
+        //params -> param_list | epsilon
+        switch(_token.type)
+        {
+            case INT:
+                if( param_list()     == false) return false;
+                return true;
+            case COMMA:
+                if( param_list()     == false) return false;
+                return true;
+                            
+             case ENDMARKER:
+                if(DebugFlag)System.out.println("End Marker");
+                if( param_list()      == false) return false;
+                //if( Match(ENDMARKER) == false) return false;
+                return true;
+        }
+
         return true;
     }
     
@@ -381,8 +386,8 @@ public class Parser
                     if( Match(BEGIN)     == false) return false;
                     if(DebugFlag)System.out.println(" ->compound_stmt "+"\t\t\t{ Matched");
                     if( local_decls()    == false) return false;
-                    if( stmt_list()           == false) return false;
-                    if( Match(END)     == false) return false;
+                    if( stmt_list()      == false) return false;
+                    if( Match(END)       == false) return false;
                     if(DebugFlag)System.out.println(" ->compound_stmt "+"\t\t\t} Matched");
                     return true;
             }
@@ -639,15 +644,19 @@ public class Parser
                     
                      
             case BEGIN:
-                if( compound_stmt()    == false) return false;
+                if(stmt()   == false) return false;
+                if(stmt_list_() == false) return false;
                 return true;
                     
             case IF:
-                if( if_stmt()     == false) return false;
+                if(stmt()   == false) return false;
+                if(stmt_list_() == false) return false;
                 return true;
             
             case WHILE:
-                if( while_stmt()   == false) return false;
+                if(DebugFlag)System.out.println("WHILE");
+                if(stmt()   == false) return false;
+                if(stmt_list_() == false) return false;
                 return true;
 
             case ENDMARKER:
