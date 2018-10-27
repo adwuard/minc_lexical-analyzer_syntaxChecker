@@ -1,0 +1,2 @@
+Syntax error: ";" is expected instead of "," at line 6.
+Error: there exists syntax error(s).

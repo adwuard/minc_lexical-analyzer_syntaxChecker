@@ -60,14 +60,14 @@ class Lexer {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\1\0\1\1\1\2\2\3\1\4\14\5\1\6\1\1"+
-    "\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\16"+
+    "\1\0\1\1\1\2\1\3\1\4\1\5\14\6\1\7"+
+    "\1\1\1\10\1\11\1\12\1\13\1\14\1\15\1\16"+
     "\1\17\1\20\1\21\1\22\1\23\1\24\1\25\1\26"+
-    "\1\27\1\30\1\3\3\5\1\31\11\5\1\32\1\33"+
-    "\1\34\1\35\1\36\1\37\3\5\1\40\1\41\13\5"+
-    "\1\42\1\5\1\43\1\5\1\44\1\5\1\45\1\5"+
-    "\1\46\2\5\1\47\1\50\1\5\1\51\1\52\1\53"+
-    "\2\5\1\54";
+    "\1\27\1\30\1\31\1\4\3\6\1\32\11\6\1\33"+
+    "\1\34\1\35\1\36\1\37\1\40\3\6\1\41\1\42"+
+    "\13\6\1\43\1\6\1\44\1\6\1\45\1\6\1\46"+
+    "\1\6\1\47\2\6\1\50\1\51\1\6\1\52\1\53"+
+    "\1\54\2\6\1\55";
 
   private static int [] zzUnpackAction() {
     int [] result = new int[94];
@@ -639,222 +639,227 @@ class Lexer {
             { System.err.println("Error: unexpected character '"+yytext()+"'"); return -1;
             } 
             // fall through
-          case 45: break;
+          case 46: break;
           case 2: 
             { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.INT_LIT    ;
             } 
             // fall through
-          case 46: break;
-          case 3: 
-            { /* skip */
-            } 
-            // fall through
           case 47: break;
-          case 4: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.DIV        ;
+          case 3: 
+            { lineno++;
             } 
             // fall through
           case 48: break;
-          case 5: 
-            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.IDENT      ;
+          case 4: 
+            { /* skip */
             } 
             // fall through
           case 49: break;
-          case 6: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.ADDR       ;
+          case 5: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.DIV        ;
             } 
             // fall through
           case 50: break;
-          case 7: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.NOT        ;
+          case 6: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.IDENT      ;
             } 
             // fall through
           case 51: break;
-          case 8: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.BEGIN      ;
+          case 7: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.ADDR       ;
             } 
             // fall through
           case 52: break;
-          case 9: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.END        ;
+          case 8: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.NOT        ;
             } 
             // fall through
           case 53: break;
-          case 10: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.LPAREN     ;
+          case 9: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.BEGIN      ;
             } 
             // fall through
           case 54: break;
-          case 11: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.RPAREN     ;
+          case 10: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.END        ;
             } 
             // fall through
           case 55: break;
-          case 12: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.LBRACKET   ;
+          case 11: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.LPAREN     ;
             } 
             // fall through
           case 56: break;
-          case 13: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.RBRACKET   ;
+          case 12: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.RPAREN     ;
             } 
             // fall through
           case 57: break;
-          case 14: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.ASSIGN     ;
+          case 13: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.LBRACKET   ;
             } 
             // fall through
           case 58: break;
-          case 15: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.GT         ;
+          case 14: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.RBRACKET   ;
             } 
             // fall through
           case 59: break;
-          case 16: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.LT         ;
+          case 15: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.ASSIGN     ;
             } 
             // fall through
           case 60: break;
-          case 17: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.PLUS       ;
+          case 16: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.GT         ;
             } 
             // fall through
           case 61: break;
-          case 18: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.MINUS      ;
+          case 17: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.LT         ;
             } 
             // fall through
           case 62: break;
-          case 19: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.MUL        ;
+          case 18: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.PLUS       ;
             } 
             // fall through
           case 63: break;
-          case 20: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.MOD        ;
+          case 19: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.MINUS      ;
             } 
             // fall through
           case 64: break;
-          case 21: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.SEMI       ;
+          case 20: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.MUL        ;
             } 
             // fall through
           case 65: break;
-          case 22: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.COMMA      ;
+          case 21: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.MOD        ;
             } 
             // fall through
           case 66: break;
-          case 23: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.DOT        ;
+          case 22: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.SEMI       ;
             } 
             // fall through
           case 67: break;
-          case 24: 
-            { System.err.println("Sorry, backspace doesn't work");
+          case 23: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.COMMA      ;
             } 
             // fall through
           case 68: break;
-          case 25: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.IF         ;
+          case 24: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.DOT        ;
             } 
             // fall through
           case 69: break;
-          case 26: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.AND        ;
+          case 25: 
+            { System.err.println("Sorry, backspace doesn't work");
             } 
             // fall through
           case 70: break;
-          case 27: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.OR         ;
+          case 26: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.IF         ;
             } 
             // fall through
           case 71: break;
-          case 28: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.NE         ;
+          case 27: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.AND        ;
             } 
             // fall through
           case 72: break;
-          case 29: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.EQ         ;
+          case 28: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.OR         ;
             } 
             // fall through
           case 73: break;
-          case 30: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.GE         ;
+          case 29: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.NE         ;
             } 
             // fall through
           case 74: break;
-          case 31: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.LE         ;
+          case 30: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.EQ         ;
             } 
             // fall through
           case 75: break;
-          case 32: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.INT        ;
+          case 31: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.GE         ;
             } 
             // fall through
           case 76: break;
-          case 33: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.NEW        ;
+          case 32: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.LE         ;
             } 
             // fall through
           case 77: break;
-          case 34: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.THEN       ;
+          case 33: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.INT        ;
             } 
             // fall through
           case 78: break;
-          case 35: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.BOOL       ;
+          case 34: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.NEW        ;
             } 
             // fall through
           case 79: break;
-          case 36: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.ELSE       ;
+          case 35: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.THEN       ;
             } 
             // fall through
           case 80: break;
-          case 37: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.SIZE       ;
+          case 36: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.BOOL       ;
             } 
             // fall through
           case 81: break;
-          case 38: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.PRINT      ;
+          case 37: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.ELSE       ;
             } 
             // fall through
           case 82: break;
-          case 39: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.BREAK      ;
+          case 38: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.SIZE       ;
             } 
             // fall through
           case 83: break;
-          case 40: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.FLOAT      ;
+          case 39: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.PRINT      ;
             } 
             // fall through
           case 84: break;
-          case 41: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.WHILE      ;
+          case 40: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.BREAK      ;
             } 
             // fall through
           case 85: break;
-          case 42: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.RETURN     ;
+          case 41: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.FLOAT      ;
             } 
             // fall through
           case 86: break;
-          case 43: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.RECORD     ;
+          case 42: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.WHILE      ;
             } 
             // fall through
           case 87: break;
-          case 44: 
-            { yyparser.yylval = new ParserVal(null            ); return Parser.CONTINUE   ;
+          case 43: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.RETURN     ;
             } 
             // fall through
           case 88: break;
+          case 44: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.RECORD     ;
+            } 
+            // fall through
+          case 89: break;
+          case 45: 
+            { yyparser.yylval = new ParserVal((Object)yytext()); return Parser.CONTINUE   ;
+            } 
+            // fall through
+          case 90: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }

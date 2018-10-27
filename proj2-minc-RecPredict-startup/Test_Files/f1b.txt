@@ -1,8 +1,2 @@
-program
-decl_list
-decl_list_
-fun_decl
-type_spec
- ->type_spec 			 INT Matched
- ->fun_decl 			IDENT Matched
-Error: there exist syntax errors.
+Syntax error: "(" is expected instead of "{" at line 1.
+Error: there exists syntax error(s).
